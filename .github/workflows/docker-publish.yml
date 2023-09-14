@@ -13,14 +13,7 @@ on:
   workflow_dispatch:
   release:
     types: [published]
-  push:
-    branches:
-      - 'main'
-    tags:
-      - 'v*'
-  pull_request:
-    branches:
-      - 'main'
+
 jobs:
   push_to_registry:
     name: Push Docker image to Docker Hub
