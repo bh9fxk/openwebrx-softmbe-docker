@@ -13,6 +13,6 @@ admin:
 	@docker exec -it $(USER)/$(IMAGE) /usr/bin/openwebrx admin adduser bh9fxk
 
 push:
-	@docker tag $(IMAGE):latest $(USER)/$(IMAGE):latest
+	@docker tag $(USER)/$(IMAGE):latest
 	@docker push @docker push $(USER)/$(IMAGE):$(DATE)
         @docker push $(USER)/$(IMAGE)
