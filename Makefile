@@ -14,5 +14,5 @@ admin:
 
 push:
 	@docker tag $(USER)/$(IMAGE):latest
-	@docker push @docker push $(USER)/$(IMAGE):$(DATE)
+	@docker push $(USER)/$(IMAGE):$(DATE)
         @docker push $(USER)/$(IMAGE)
