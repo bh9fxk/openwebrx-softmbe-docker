@@ -37,9 +37,12 @@ dpkg -i codecserver-driver-softmbe_0.0.1_*.deb
 rm *.deb
 
 # link the library to the correct location for the codec server
-ln -s /usr/lib/x86_64-linux-gnu/codecserver/libsoftmbe.so /usr/local/lib/codecserver/
+#ln -s /usr/lib/x86_64-linux-gnu/codecserver/libsoftmbe.so /usr/local/lib/codecserver/
+linklib=$(dpkg -L codecserver-driver-softmbe | grep libsoftmbe.so)
+ln -s $linklib /usr/local/lib/codecserver/
 
 # add the softmbe library to the codecserver config
+mkdir -p /usr/local/etc/codecserver
 cat >> /usr/local/etc/codecserver/codecserver.conf << _EOF_
 [device:softmbe]
 driver=softmbe
