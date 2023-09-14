@@ -1,4 +1,4 @@
-FROM jketterl/openwebrx:latest-armv7l
+FROM jketterl/openwebrx:latest
 LABEL OpenWebRX + Digital codecs (mbelib), using codecserver-softmbe.
 
 
