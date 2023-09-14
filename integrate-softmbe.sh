@@ -1,9 +1,9 @@
 #!/bin/bash
-set -euxo pipefail
-export MAKEFLAGS="-j12"
+#set -euxo pipefail
+#export MAKEFLAGS="-j12"
 
 #BUILD_PACKAGES="curl gnupg1 git-core debhelper cmake libprotobuf-dev protobuf-compiler libcodecserver-dev"
-BUILD_PACKAGES="git build-essential debhelper cmake libprotobuf23 libprotobuf-dev protobuf-compiler libprotobuf32 libcodecserver-dev"
+BUILD_PACKAGES="git build-essential debhelper cmake libprotobuf-dev protobuf-compiler libcodecserver-dev"
 
 apt update
 #apt install -y curl gnupg1
