@@ -4,7 +4,6 @@ ARG ARCH
 FROM jketterl/openwebrx:latest
 LABEL OpenWebRX + Digital codecs (mbelib), using codecserver-softmbe.
 
-COPY --from=build /deb /deb
 ENV S6_CMD_ARG0="/opt/openwebrx/docker/scripts/run.sh"
 
 COPY integrate-softmbe.sh /
