@@ -39,9 +39,11 @@ jobs:
         uses: docker/metadata-action@v5
         with: 
           images: bh9fxk/openwebrx-softmbe
-          tags: 
-          # output 0.1.2
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
             type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
       
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
