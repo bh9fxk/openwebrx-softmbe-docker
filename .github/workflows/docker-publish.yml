@@ -37,8 +37,11 @@ jobs:
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v5
-        with:
+        with: 
           images: bh9fxk/openwebrx-softmbe
+          tags: 
+          # output 0.1.2
+            type=semver,pattern={{version}}
       
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
@@ -47,6 +50,6 @@ jobs:
           file: ./Dockerfile
           platforms: linux/x86_64,linux/arm/v7,linux/aarch64
           push: true
-          #tags: ${{ steps.meta.outputs.tags }}
-          tags: bh9fxk/openwebrx-softmbe:latest
+          tags: ${{ steps.meta.outputs.tags }}
+          #tags: bh9fxk/openwebrx-softmbe:latest
           labels: ${{ steps.meta.outputs.labels }}
