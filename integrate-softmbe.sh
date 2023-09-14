@@ -5,14 +5,14 @@ export MAKEFLAGS="-j12"
 #BUILD_PACKAGES="curl gnupg1 git-core debhelper cmake libprotobuf-dev protobuf-compiler libcodecserver-dev"
 BUILD_PACKAGES="git build-essential debhelper cmake libprotobuf23 libprotobuf-dev protobuf-compiler libprotobuf32 libcodecserver-dev"
 
-apt-get update
+apt update
 #apt install -y curl gnupg1
 #curl https://repo.openwebrx.de/debian/key.gpg.txt | apt-key add
 #echo "deb https://repo.openwebrx.de/debian/ experimental main" > /etc/apt/sources.list.d/openwebrx-experimental.list
 apt-get install -y wget gpg
 wget -O - https://repo.openwebrx.de/debian/key.gpg.txt | gpg --dearmor -o /usr/share/keyrings/openwebrx.gpg
 echo "deb [signed-by=/usr/share/keyrings/openwebrx.gpg] https://repo.openwebrx.de/debian/ bullseye main" > /etc/apt/sources.list.d/openwebrx-bullseye.list
-apt-get update
+apt update
 
 apt-get install -y $BUILD_PACKAGES
 cd
