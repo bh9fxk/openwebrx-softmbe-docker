@@ -41,18 +41,7 @@ jobs:
             org.opencontainers.image.title=Openwebrx-softmbe
             org.opencontainers.image.description="OpenWebRX + Digital codecs (mbelib), using codecserver-softmbe."
             org.opencontainers.image.vendor=BH9FXK
-            
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          file: ./Dockerfile
-          platforms: linux/amd64,linux/arm/v7,linux/arm64
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          #tags: bh9fxk/openwebrx-softmbe:latest
-          labels: ${{ steps.meta.outputs.labels }}
-        
+
       - name: Build and push armv7 image
         uses: docker/build-push-action@v5
         with:
@@ -62,6 +51,17 @@ jobs:
           push: true
           tags: | 
             bh9fxk/openwebrx-softmbe:latest-armv7
-            bh9fxk/openwebrx-softmbe:armv7-(date +'%Y%m%d-%H%M%S')
+            bh9fxk/openwebrx-softmbe:armv7-$(date +'%Y%m%d-%H%M%S')
+          #tags: bh9fxk/openwebrx-softmbe:latest
+          labels: ${{ steps.meta.outputs.labels }}
+          
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          platforms: linux/amd64,linux/arm/v7,linux/arm64
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
           #tags: bh9fxk/openwebrx-softmbe:latest
           labels: ${{ steps.meta.outputs.labels }}
