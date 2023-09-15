@@ -4,9 +4,6 @@
 BUILD_PACKAGES="git debhelper cmake libprotobuf-dev protobuf-compiler libcodecserver-dev"
 
 apt-get update
-#apt install -y curl gnupg1
-#curl https://repo.openwebrx.de/debian/key.gpg.txt | apt-key add
-#echo "deb https://repo.openwebrx.de/debian/ experimental main" > /etc/apt/sources.list.d/openwebrx-experimental.list
 apt-get install -y wget gpg
 wget -O - https://repo.openwebrx.de/debian/key.gpg.txt | gpg --dearmor -o /usr/share/keyrings/openwebrx.gpg
 echo "deb [signed-by=/usr/share/keyrings/openwebrx.gpg] https://repo.openwebrx.de/debian/ experimental main" > /etc/apt/sources.list.d/openwebrx-experimental.list
@@ -23,7 +20,6 @@ cd ..
 rm -rf mbelib
 dpkg -i libmbe1_1.3.0_*.deb libmbe-dev_1.3.0_*.deb
 rm *.deb
-
 
 # install codecserver-softmbe
 git clone https://github.com/knatterfunker/codecserver-softmbe.git
@@ -47,7 +43,3 @@ cat >> /usr/local/etc/codecserver/codecserver.conf << _EOF_
 [device:softmbe]
 driver=softmbe
 _EOF_
-
-#apt-get -y purge --autoremove $BUILD_PACKAGES
-#apt-get clean
-#rm -rf /var/lib/apt/lists/*
