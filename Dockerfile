@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM debian:latest
 #FROM jketterl/openwebrx:latest
 
 LABEL OpenWebRX + Digital codecs (mbelib), using codecserver-softmbe.
