@@ -44,3 +44,9 @@ cat >> /usr/local/etc/codecserver/codecserver.conf << _EOF_
 [device:softmbe]
 driver=softmbe
 _EOF_
+
+apt-get -y purge --autoremove $BUILD_PACKAGES
+apt-get -y autoremove
+apt-get clean
+
+#rm -rf /var/lib/apt/lists/*
