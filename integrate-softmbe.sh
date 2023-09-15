@@ -11,6 +11,7 @@ apt-get update
 
 apt install -y $BUILD_PACKAGES
 cd
+apt-get install -y openwebrx
 
 # install mbelib
 git clone https://github.com/szechyjs/mbelib.git
