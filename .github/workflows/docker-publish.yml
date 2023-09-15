@@ -42,14 +42,14 @@ jobs:
             org.opencontainers.image.description="OpenWebRX + Digital codecs (mbelib), using codecserver-softmbe."
             org.opencontainers.image.vendor=BH9FXK
 
-      - name: Extract metadata (tags, labels) for Docker
+      - name: Extract metadata (tags, labels) for Docker armv7
         id: meta-armv7
         uses: docker/metadata-action@v5
         with: 
           images: bh9fxk/openwebrx-softmbe
           tags: |
-            type=raw,value=latest
-            type=raw,value={{date 'YYYYMMDD-HHmmss' tz='Asia/Shanghai'}}
+            type=raw,value=latest-armv7
+            type=raw,value={{date 'YYYYMMDD-HHmmss' tz='Asia/Shanghai'}}-armv7
           labels: | 
             maintainer=BH9FXK
             org.opencontainers.image.title=Openwebrx-softmbe
