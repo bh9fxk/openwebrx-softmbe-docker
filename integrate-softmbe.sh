@@ -48,4 +48,4 @@ apt-get -y purge --autoremove $BUILD_PACKAGES
 apt-get -y autoremove
 apt-get clean
 
-#rm -rf /var/lib/apt/lists/*
+rm -rf /var/lib/apt/lists/*
