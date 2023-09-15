@@ -9,7 +9,7 @@ wget -O - https://repo.openwebrx.de/debian/key.gpg.txt | gpg --dearmor -o /usr/s
 echo "deb [signed-by=/usr/share/keyrings/openwebrx.gpg] https://repo.openwebrx.de/debian/ experimental main" > /etc/apt/sources.list.d/openwebrx-experimental.list
 apt-get update
 
-apt install -y $BUILD_PACKAGES
+apt-get install -y $BUILD_PACKAGES
 cd
 apt-get install -y openwebrx
 
