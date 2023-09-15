@@ -42,6 +42,20 @@ jobs:
             org.opencontainers.image.description="OpenWebRX + Digital codecs (mbelib), using codecserver-softmbe."
             org.opencontainers.image.vendor=BH9FXK
 
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta-armv7
+        uses: docker/metadata-action@v5
+        with: 
+          images: bh9fxk/openwebrx-softmbe
+          tags: |
+            type=raw,value=latest
+            type=raw,value={{date 'YYYYMMDD-HHmmss' tz='Asia/Shanghai'}}
+          labels: | 
+            maintainer=BH9FXK
+            org.opencontainers.image.title=Openwebrx-softmbe
+            org.opencontainers.image.description="OpenWebRX + Digital codecs (mbelib), using codecserver-softmbe."
+            org.opencontainers.image.vendor=BH9FXK
+
       - name: Build and push armv7 image
         uses: docker/build-push-action@v5
         with:
@@ -49,11 +63,8 @@ jobs:
           file: ./Dockerfile
           platforms: linux/arm/v7
           push: true
-          tags: | 
-            bh9fxk/openwebrx-softmbe:latest-armv7
-            bh9fxk/openwebrx-softmbe:armv7-$(date +'%Y%m%d-%H%M%S')
-          #tags: bh9fxk/openwebrx-softmbe:latest
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ steps.meta-armv7.outputs.tags }}
+          labels: ${{ steps.meta-armv7.outputs.labels }}
           
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
