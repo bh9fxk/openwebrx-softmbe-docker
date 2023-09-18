@@ -7,8 +7,8 @@ name: Publish Docker image
 
 on:
   workflow_dispatch:
-  schedule:
-  - cron: "30 19 * * *"
+  #schedule:
+  #- cron: "30 19 * * *"
 
 jobs:
   push_to_registry:
