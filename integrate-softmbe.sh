@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #BUILD_PACKAGES="curl gnupg1 git-core debhelper cmake libprotobuf-dev protobuf-compiler libcodecserver-dev"
 BUILD_PACKAGES="git debhelper cmake libprotobuf-dev protobuf-compiler libcodecserver-dev"
@@ -9,7 +9,7 @@ wget -O - https://repo.openwebrx.de/debian/key.gpg.txt | gpg --dearmor -o /usr/s
 echo "deb [signed-by=/usr/share/keyrings/openwebrx.gpg] https://repo.openwebrx.de/debian/ experimental main" > /etc/apt/sources.list.d/openwebrx-experimental.list
 
 apt-get update
-apt-get install -y $BUILD_PACKAGES
+apt-get install -y --no-install-recommends $BUILD_PACKAGES
 cd
 
 # install mbelib
