@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#BUILD_PACKAGES="curl gnupg1 git-core debhelper cmake libprotobuf-dev protobuf-compiler libcodecserver-dev"
+#BUILD_PACKAGES="curl gnupg1 git-core debhelper cmake libprotobuf-dev protobuf-compiler libcodecserver-dev build-essential"
 BUILD_PACKAGES="git debhelper cmake libprotobuf-dev protobuf-compiler libcodecserver-dev"
 
 apt-get update
