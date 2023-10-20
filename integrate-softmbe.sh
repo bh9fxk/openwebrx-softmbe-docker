@@ -7,7 +7,8 @@ echo "deb [signed-by=/usr/share/keyrings/openwebrx.gpg] https://repo.openwebrx.d
      > /etc/apt/sources.list.d/openwebrx-experimental.list
 
 apt-get update
-apt-get install -y git debhelper cmake libprotobuf-dev protobuf-compiler libcodecserver-dev
+apt-get install -y libprotobuf-dev protobuf-compiler libcodecserver-dev
+apt-get install -y git debhelper cmake
 cd
 
 # install mbelib
