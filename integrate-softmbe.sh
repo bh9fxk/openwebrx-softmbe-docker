@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 #
+DEBIAN_FRONTEND=noninteractive
 BUILD_PACKAGES="libprotobuf-dev protobuf-compiler libcodecserver-dev"
 
 apt-get -qq update
