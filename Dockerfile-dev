@@ -3,5 +3,5 @@ FROM jketterl/openwebrx:latest
 LABEL OpenWebRX + Digital codecs (mbelib), using codecserver-softmbe.
 
 
-COPY integrate-softmbe.sh /
-RUN /integrate-softmbe.sh
+COPY integrate-softmbe-dev.sh /
+RUN /integrate-softmbe-dev.sh
