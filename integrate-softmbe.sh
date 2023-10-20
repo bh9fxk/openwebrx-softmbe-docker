@@ -1,18 +1,19 @@
 #!/usr/bin/env bash
 #
-DEBIAN_FRONTEND=noninteractive
 BUILD_PACKAGES="libprotobuf-dev protobuf-compiler libcodecserver-dev"
 
 apt-get -qq update
-apt-get -qq -y install wget gpg git debhelper cmake debconf  apt-utils
+apt-get -qq -y install apt-utils
+apt-get -qq update
+apt-get -qq -y install wget gpg git debhelper cmake debconf
+
 #wget -O - https://repo.openwebrx.de/debian/key.gpg.txt | gpg --dearmor -o /usr/share/keyrings/openwebrx.gpg
 #echo "deb [signed-by=/usr/share/keyrings/openwebrx.gpg] https://repo.openwebrx.de/debian/ experimental main" \ 
 #     > /etc/apt/sources.list.d/openwebrx-experimental.list
 wget -O - https://repo.openwebrx.de/debian/key.gpg.txt | gpg --dearmor -o /usr/share/keyrings/openwebrx.gpg
 echo "deb [signed-by=/usr/share/keyrings/openwebrx.gpg] https://repo.openwebrx.de/debian/ bullseye main" > /etc/apt/sources.list.d/openwebrx.list
 
-echo "------更新包数据------"
-apt-get update
+apt-get -qq update
 echo "------安装依赖------"
 apt-get -qq -y install $BUILD_PACKAGES
 
