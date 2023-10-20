@@ -12,7 +12,7 @@ wget -O - https://repo.openwebrx.de/debian/key.gpg.txt | gpg --dearmor -o /usr/s
 echo "deb [signed-by=/usr/share/keyrings/openwebrx.gpg] https://repo.openwebrx.de/debian/ bookworm main" > /etc/apt/sources.list.d/openwebrx.list
 
 echo "------更新包数据------"
-apt-get -qq update
+apt-get update
 echo "------安装依赖------"
 apt-get -qq -y install $BUILD_PACKAGES
 
