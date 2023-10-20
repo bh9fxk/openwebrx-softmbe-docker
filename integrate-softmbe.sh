@@ -2,11 +2,15 @@
 #
 apt-get update
 apt-get install -y wget gpg
+#wget -O - https://repo.openwebrx.de/debian/key.gpg.txt | gpg --dearmor -o /usr/share/keyrings/openwebrx.gpg
+#echo "deb [signed-by=/usr/share/keyrings/openwebrx.gpg] https://repo.openwebrx.de/debian/ experimental main" \ 
+#     > /etc/apt/sources.list.d/openwebrx-experimental.list
 wget -O - https://repo.openwebrx.de/debian/key.gpg.txt | gpg --dearmor -o /usr/share/keyrings/openwebrx.gpg
-echo "deb [signed-by=/usr/share/keyrings/openwebrx.gpg] https://repo.openwebrx.de/debian/ experimental main" \ 
-     > /etc/apt/sources.list.d/openwebrx-experimental.list
+echo "deb [signed-by=/usr/share/keyrings/openwebrx.gpg] https://repo.openwebrx.de/debian/ bookworm main" \ 
+     > /etc/apt/sources.list.d/openwebrx.list
 
 apt-get update
+echo "安装依赖"
 apt-get install -y libprotobuf-dev protobuf-compiler libcodecserver-dev
 apt-get update
 apt-get install -y git debhelper cmake
