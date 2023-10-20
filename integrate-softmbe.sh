@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 #
-BUILD_PACKAGES="git debhelper cmake debconf libprotobuf-dev protobuf-compiler libcodecserver-dev"
+BUILD_PACKAGES="libprotobuf-dev protobuf-compiler libcodecserver-dev"
 
 apt-get -qq update
-apt-get -qq install -y wget gpg
+apt-get -qq install -y wget gpg git debhelper cmake debconf
 #wget -O - https://repo.openwebrx.de/debian/key.gpg.txt | gpg --dearmor -o /usr/share/keyrings/openwebrx.gpg
 #echo "deb [signed-by=/usr/share/keyrings/openwebrx.gpg] https://repo.openwebrx.de/debian/ experimental main" \ 
 #     > /etc/apt/sources.list.d/openwebrx-experimental.list
@@ -51,6 +51,8 @@ driver=softmbe
 _EOF_
 
 apt-get -qq -y purge --autoremove $BUILD_PACKAGES
+apt-get -qq update
+apt-get -qq -y purge --autoremove wget gpg git debhelper cmake debconf
 apt-get -y autoremove
 apt-get clean
 
