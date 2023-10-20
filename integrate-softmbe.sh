@@ -10,13 +10,14 @@ echo "deb [signed-by=/usr/share/keyrings/openwebrx.gpg] https://repo.openwebrx.d
      > /etc/apt/sources.list.d/openwebrx.list
 
 apt-get update
-echo "安装依赖"
+echo "------安装依赖------"
 apt-get install -y libprotobuf-dev protobuf-compiler libcodecserver-dev
 apt-get update
-apt-get install -y git debhelper cmake
+apt-get install -y git debhelper cmake debconf
 
 cd
 # install mbelib
+echo "------install mbelib------"
 git clone https://github.com/szechyjs/mbelib.git
 cd mbelib
 dpkg-buildpackage
@@ -26,6 +27,7 @@ dpkg -i libmbe1_1.3.0_*.deb libmbe-dev_1.3.0_*.deb
 rm *.deb
 
 # install codecserver-softmbe
+echo "------install codecserver-softmbe------"
 git clone https://github.com/knatterfunker/codecserver-softmbe.git
 cd codecserver-softmbe
 # ignore missing library linking error in dpkg-buildpackage command
