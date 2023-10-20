@@ -54,7 +54,7 @@ _EOF_
 apt-get -qq update
 apt-get -qq -y purge --autoremove --allow-remove-essential $BUILD_PACKAGES
 apt-get -qq -y purge --autoremove --allow-remove-essential wget gpg git debhelper cmake debconf  apt-utils
-apt-get -y autoremove --allow-remove-essential
-apt-get clean
+apt-get -y autoremove
+apt-get autoclean
 
 rm -rf /var/lib/apt/lists/*
