@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 #
-apt-get update
-apt-get install -y wget gpg
+$BUILD_PACKAGES = git debhelper cmake debconf libprotobuf-dev protobuf-compiler libcodecserver-dev
+
+apt-get -qq update
+apt-get -qq install -y wget gpg
 #wget -O - https://repo.openwebrx.de/debian/key.gpg.txt | gpg --dearmor -o /usr/share/keyrings/openwebrx.gpg
 #echo "deb [signed-by=/usr/share/keyrings/openwebrx.gpg] https://repo.openwebrx.de/debian/ experimental main" \ 
 #     > /etc/apt/sources.list.d/openwebrx-experimental.list
@@ -9,11 +11,9 @@ wget -O - https://repo.openwebrx.de/debian/key.gpg.txt | gpg --dearmor -o /usr/s
 echo "deb [signed-by=/usr/share/keyrings/openwebrx.gpg] https://repo.openwebrx.de/debian/ bookworm main" \ 
      > /etc/apt/sources.list.d/openwebrx.list
 
-apt-get update
+apt-get -qq update
 echo "------安装依赖------"
-apt-get install -y libprotobuf-dev protobuf-compiler libcodecserver-dev
-apt-get update
-apt-get install -y git debhelper cmake debconf
+apt-get -qq install -y $BUILD_PACKAGES
 
 cd
 # install mbelib
@@ -50,7 +50,7 @@ cat >> /usr/local/etc/codecserver/codecserver.conf << _EOF_
 driver=softmbe
 _EOF_
 
-apt-get -y purge --autoremove $BUILD_PACKAGES
+apt-get -qq -y purge --autoremove $BUILD_PACKAGES
 apt-get -y autoremove
 apt-get clean
 
