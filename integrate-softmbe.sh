@@ -52,8 +52,8 @@ driver=softmbe
 _EOF_
 
 apt-get -qq update
-apt-get -qq -y purge --autoremove $BUILD_PACKAGES
-apt-get -qq -y purge --autoremove wget gpg git debhelper cmake debconf
+apt-get -qq -y purge --autoremove --allow-remove-essential $BUILD_PACKAGES
+apt-get -qq -y purge --autoremove --allow-remove-essential wget gpg git debhelper cmake debconf
 apt-get -y autoremove --allow-remove-essential
 apt-get clean
 
