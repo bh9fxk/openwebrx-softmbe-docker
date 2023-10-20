@@ -9,8 +9,7 @@ apt-get -qq -y install wget gpg git debhelper cmake debconf
 #echo "deb [signed-by=/usr/share/keyrings/openwebrx.gpg] https://repo.openwebrx.de/debian/ experimental main" \ 
 #     > /etc/apt/sources.list.d/openwebrx-experimental.list
 wget -O - https://repo.openwebrx.de/debian/key.gpg.txt | gpg --dearmor -o /usr/share/keyrings/openwebrx.gpg
-echo "deb [signed-by=/usr/share/keyrings/openwebrx.gpg] https://repo.openwebrx.de/debian/ bookworm main" \ 
-     > /etc/apt/sources.list.d/openwebrx.list
+echo "deb [signed-by=/usr/share/keyrings/openwebrx.gpg] https://repo.openwebrx.de/debian/ bookworm main" > /etc/apt/sources.list.d/openwebrx.list
 
 apt-get -qq update
 echo "------安装依赖------"
