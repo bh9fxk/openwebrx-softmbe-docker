@@ -8,9 +8,10 @@ echo "deb [signed-by=/usr/share/keyrings/openwebrx.gpg] https://repo.openwebrx.d
 
 apt-get update
 apt-get install -y libprotobuf-dev protobuf-compiler libcodecserver-dev
+apt-get update
 apt-get install -y git debhelper cmake
-cd
 
+cd
 # install mbelib
 git clone https://github.com/szechyjs/mbelib.git
 cd mbelib
