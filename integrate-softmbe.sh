@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-$BUILD_PACKAGES="git debhelper cmake debconf libprotobuf-dev protobuf-compiler libcodecserver-dev"
+BUILD_PACKAGES="git debhelper cmake debconf libprotobuf-dev protobuf-compiler libcodecserver-dev"
 
 apt-get -qq update
 apt-get -qq install -y wget gpg
