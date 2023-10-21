@@ -3,5 +3,6 @@ FROM jketterl/openwebrx:stable
 
 LABEL OpenWebRX + Digital codecs (mbelib), using codecserver-softmbe.
 
+ARG DEBIAN_FRONTEND = noninteractive
 COPY integrate-softmbe-stable.sh /
 RUN /integrate-softmbe-stable.sh
