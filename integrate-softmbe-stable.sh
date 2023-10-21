@@ -3,8 +3,6 @@
 BUILD_PACKAGES="libprotobuf-dev protobuf-compiler libcodecserver-dev"
 
 apt-get -qq update
-echo "------安装debconf apt-utils-------"
-apt-get -qq -y install debconf apt-utils
 echo "------安装wget gpg git debhelper cmake-------"
 apt-get -qq -y install wget gpg git debhelper cmake
 
