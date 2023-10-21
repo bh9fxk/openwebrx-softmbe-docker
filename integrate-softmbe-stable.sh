@@ -3,8 +3,12 @@
 BUILD_PACKAGES="libprotobuf-dev protobuf-compiler libcodecserver-dev"
 
 apt-get -qq update
+echo "------安装debconf apt-utils-------"
+apt-get -qq -y install debconf apt-utils
+echo "------安装wget gpg git debhelper cmake-------"
 apt-get -qq -y install wget gpg git debhelper cmake
 
+echo "------导入Openwebrx源-------"
 wget -O - https://repo.openwebrx.de/debian/key.gpg.txt | gpg --dearmor -o /usr/share/keyrings/openwebrx.gpg
 echo "deb [signed-by=/usr/share/keyrings/openwebrx.gpg] https://repo.openwebrx.de/debian/ bullseye main" > /etc/apt/sources.list.d/openwebrx.list
 
