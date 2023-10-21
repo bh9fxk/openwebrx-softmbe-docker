@@ -5,4 +5,4 @@ LABEL OpenWebRX + Digital codecs (mbelib), using codecserver-softmbe.
 
 
 COPY integrate-softmbe-stable.sh /
-RUN DEBIAN_FRONTEND=noninteractive /integrate-softmbe-stable.sh
+RUN /integrate-softmbe-stable.sh
