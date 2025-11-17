@@ -56,13 +56,9 @@ apt-get -qq -y purge --autoremove --allow-remove-essential \
     git \
     gcc \
     make \
-    libasound2-dev \
-    libudev-dev \
-    libgps-dev \
     cmake \
     pkg-config \
-    build-essential \
-    libhamlib-dev
+    build-essential
 apt-get clean
 rm -rf /var/lib/apt/lists/*
 # strip lots of generic documentation that will never be read inside a docker container
