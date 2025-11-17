@@ -7,6 +7,7 @@ rm -f /usr/local/share/man/man1/direwolf.1
 rm -rf /usr/local/share/direwolf
 echo "=== Removing any existing direwolf package ==="
 apt-get remove -y direwolf || true
+apt-get remove -y direwolf gpsd gpsd-clients libgps28 libgps30 || true
 
 echo "=== Installing build dependencies for Dire Wolf ==="
 apt-get update
@@ -22,6 +23,13 @@ apt-get install -y \
     build-essential \
     libhamlib-dev
 
+# Verify what version we actually got
+echo "Installed libgps version:"
+dpkg -l | grep libgps
+
+echo "Available libgps files:"
+ls -l /usr/lib/*/libgps.so*
+
 DIREWOLF_VERSION="1.8.1"
 DIREWOLF_SRC_DIR="/tmp/direwolf-${DIREWOLF_VERSION}"
 
@@ -36,6 +44,17 @@ cmake .. && make -j$(nproc)
 echo "=== Installing Dire Wolf ==="
 make install
 ldconfig
+
+echo "=== Checking linked libraries ==="
+ldd /usr/local/bin/direwolf | grep gps
+
+# Optional: force-recreate standard symlink if missing
+LIBGPS_SO=$(find /usr/lib -name "libgps.so.*" -type f | head -1)
+if [ -n "$LIBGPS_SO" ]; then
+    LIB_DIR=$(dirname "$LIBGPS_SO")
+    ln -sf "$LIBGPS_SO" "${LIB_DIR}/libgps.so"
+    echo "Ensured libgps.so symlink exists."
+fi
 
 echo "=== Cleaning up ==="
 rm -rf "${DIREWOLF_SRC_DIR}"
