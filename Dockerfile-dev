@@ -4,5 +4,6 @@ LABEL OpenWebRX + Digital codecs (mbelib), using codecserver-softmbe.
 
 COPY integrate-softmbe-dev.sh /
 RUN /integrate-softmbe-dev.sh
+RUN chmod +x direwolf-dev.sh
 COPY direwolf-dev.sh /
 RUN /direwolf-dev.sh
