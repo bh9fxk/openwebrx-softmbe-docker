@@ -34,7 +34,8 @@ DIREWOLF_VERSION="1.8.1"
 DIREWOLF_SRC_DIR="/tmp/direwolf-${DIREWOLF_VERSION}"
 
 echo "=== Downloading Dire Wolf ${DIREWOLF_VERSION} ==="
-git clone --branch ${DIREWOLF_VERSION} --depth 1 https://github.com/wb2osz/direwolf.git "${DIREWOLF_SRC_DIR}"
+# git clone --branch ${DIREWOLF_VERSION} --depth 1 https://github.com/wb2osz/direwolf.git "${DIREWOLF_SRC_DIR}"
+git clone https://github.com/wb2osz/direwolf.git "${DIREWOLF_SRC_DIR}"
 cd ${DIREWOLF_SRC_DIR}
 mkdir build && cd build
 
@@ -47,14 +48,6 @@ ldconfig
 
 echo "=== Checking linked libraries ==="
 ldd /usr/local/bin/direwolf | grep gps
-
-# Optional: force-recreate standard symlink if missing
-LIBGPS_SO=$(find /usr/lib -name "libgps.so.*" -type f | head -1)
-if [ -n "$LIBGPS_SO" ]; then
-    LIB_DIR=$(dirname "$LIBGPS_SO")
-    ln -sf "$LIBGPS_SO" "${LIB_DIR}/libgps.so"
-    echo "Ensured libgps.so symlink exists."
-fi
 
 echo "=== Cleaning up ==="
 rm -rf "${DIREWOLF_SRC_DIR}"
