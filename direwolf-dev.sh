@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -e
 
+echo "=== Removing any existing Dire Wolf installation (source-built) ==="
+rm -f /usr/local/bin/direwolf
+rm -f /usr/local/share/man/man1/direwolf.1
+rm -rf /usr/local/share/direwolf
 echo "=== Removing any existing direwolf package ==="
 apt-get remove -y direwolf || true
 
@@ -18,11 +22,11 @@ apt-get install -y \
     build-essential
 
 DIREWOLF_VERSION="1.8.1"
-# DIREWOLF_SRC_DIR="/tmp/direwolf-${DIREWOLF_VERSION}"
+DIREWOLF_SRC_DIR="/tmp/direwolf-${DIREWOLF_VERSION}"
 
 echo "=== Downloading Dire Wolf ${DIREWOLF_VERSION} ==="
-git clone --branch ${DIREWOLF_VERSION} --depth 1 https://github.com/wb2osz/direwolf.git #"${DIREWOLF_SRC_DIR}"
-cd direwolf
+git clone --branch ${DIREWOLF_VERSION} --depth 1 https://github.com/wb2osz/direwolf.git "${DIREWOLF_SRC_DIR}"
+cd ${DIREWOLF_SRC_DIR}
 mkdir build && cd build
 
 echo "=== Building Dire Wolf ==="
@@ -33,8 +37,7 @@ make install
 ldconfig
 
 echo "=== Cleaning up ==="
-cd
-rm -rf direwolf # "${DIREWOLF_SRC_DIR}"
+rm -rf "${DIREWOLF_SRC_DIR}"
 apt-get autoremove -y
 apt-get -qq -y purge --autoremove --allow-remove-essential \
     git \
@@ -48,5 +51,9 @@ apt-get -qq -y purge --autoremove --allow-remove-essential \
     build-essential
 apt-get clean
 rm -rf /var/lib/apt/lists/*
+# strip lots of generic documentation that will never be read inside a docker container
+rm /usr/local/share/doc/direwolf/*.pdf
+# examples are pointless, too
+rm -rf /usr/local/share/doc/direwolf/examples/
 
 echo "✅ Dire Wolf ${DIREWOLF_VERSION} installed from source."
