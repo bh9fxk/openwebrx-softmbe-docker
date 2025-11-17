@@ -14,7 +14,8 @@ apt-get install -y \
     libudev-dev \
     libgps-dev \
     cmake \
-    pkg-config
+    pkg-config \
+    build-essential
 
 DIREWOLF_VERSION="1.8.1"
 # DIREWOLF_SRC_DIR="/tmp/direwolf-${DIREWOLF_VERSION}"
