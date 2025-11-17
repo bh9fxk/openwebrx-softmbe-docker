@@ -19,7 +19,8 @@ apt-get install -y \
     libgps-dev \
     cmake \
     pkg-config \
-    build-essential
+    build-essential \
+    libhamlib-dev
 
 DIREWOLF_VERSION="1.8.1"
 DIREWOLF_SRC_DIR="/tmp/direwolf-${DIREWOLF_VERSION}"
@@ -48,7 +49,8 @@ apt-get -qq -y purge --autoremove --allow-remove-essential \
     libgps-dev \
     cmake \
     pkg-config \
-    build-essential
+    build-essential \
+    libhamlib-dev
 apt-get clean
 rm -rf /var/lib/apt/lists/*
 # strip lots of generic documentation that will never be read inside a docker container
