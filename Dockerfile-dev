@@ -75,7 +75,7 @@ COPY --from=builder /usr/bin/direwolf /usr/bin/direwolf
 COPY --from=builder /opt/openwebrx /opt/openwebrx
 
 # 复制配置文件（假设你有 config_webrx.py 模板）
-COPY config_webrx.py /opt/openwebrx/config_webrx.py
+# COPY config_webrx.py /opt/openwebrx/config_webrx.py
 
 WORKDIR /opt/openwebrx
 USER openwebrx
