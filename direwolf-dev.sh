@@ -22,9 +22,10 @@ DIREWOLF_VERSION="1.8.1"
 echo "=== Downloading Dire Wolf ${DIREWOLF_VERSION} ==="
 git clone --branch ${DIREWOLF_VERSION} --depth 1 https://github.com/wb2osz/direwolf.git #"${DIREWOLF_SRC_DIR}"
 cd direwolf
+mkdir build && cd build
 
 echo "=== Building Dire Wolf ==="
-make -j$(nproc)
+cmake .. && make -j$(nproc)
 
 echo "=== Installing Dire Wolf ==="
 make install
