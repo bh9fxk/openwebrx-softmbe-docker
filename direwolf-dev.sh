@@ -17,11 +17,11 @@ apt-get install -y \
     pkg-config
 
 DIREWOLF_VERSION="1.8.1"
-DIREWOLF_SRC_DIR="/tmp/direwolf-${DIREWOLF_VERSION}"
+# DIREWOLF_SRC_DIR="/tmp/direwolf-${DIREWOLF_VERSION}"
 
 echo "=== Downloading Dire Wolf ${DIREWOLF_VERSION} ==="
-git clone --branch ${DIREWOLF_VERSION} --depth 1 https://github.com/wb2osz/direwolf.git "${DIREWOLF_SRC_DIR}"
-cd "${DIREWOLF_SRC_DIR}"
+git clone --branch ${DIREWOLF_VERSION} --depth 1 https://github.com/wb2osz/direwolf.git #"${DIREWOLF_SRC_DIR}"
+cd direwolf
 
 echo "=== Building Dire Wolf ==="
 make -j$(nproc)
@@ -31,7 +31,7 @@ make install
 ldconfig
 
 echo "=== Cleaning up ==="
-rm -rf "${DIREWOLF_SRC_DIR}"
+rm -rf direwolf # "${DIREWOLF_SRC_DIR}"
 apt-get autoremove -y
 apt-get clean
 rm -rf /var/lib/apt/lists/*
