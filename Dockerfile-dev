@@ -2,10 +2,9 @@ FROM jketterl/openwebrx:latest
 
 LABEL OpenWebRX + Digital codecs (mbelib), using codecserver-softmbe.
 
-RUN chmod +x /direwolf-dev.sh
 COPY direwolf-dev.sh /
+RUN chmod +x /direwolf-dev.sh
 RUN /direwolf-dev.sh
 
 COPY integrate-softmbe-dev.sh /
 RUN /integrate-softmbe-dev.sh
-
