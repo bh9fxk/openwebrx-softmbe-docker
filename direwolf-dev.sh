@@ -33,8 +33,19 @@ make install
 ldconfig
 
 echo "=== Cleaning up ==="
+cd
 rm -rf direwolf # "${DIREWOLF_SRC_DIR}"
 apt-get autoremove -y
+apt-get -qq -y purge --autoremove --allow-remove-essential \
+    git \
+    gcc \
+    make \
+    libasound2-dev \
+    libudev-dev \
+    libgps-dev \
+    cmake \
+    pkg-config \
+    build-essential
 apt-get clean
 rm -rf /var/lib/apt/lists/*
 
