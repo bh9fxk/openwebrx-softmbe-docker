@@ -26,6 +26,7 @@ DIREWOLF_VERSION="1.8.1"
 DIREWOLF_SRC_DIR="/tmp/direwolf"
 
 echo "=== Downloading Dire Wolf ${DIREWOLF_VERSION} ==="
+mkdir ${DIREWOLF_SRC_DIR}
 # git clone --branch ${DIREWOLF_VERSION} --depth 1 https://github.com/wb2osz/direwolf.git "${DIREWOLF_SRC_DIR}"
 git clone https://github.com/wb2osz/direwolf.git "${DIREWOLF_SRC_DIR}"
 cd ${DIREWOLF_SRC_DIR}
@@ -42,7 +43,7 @@ echo "=== Checking linked libraries ==="
 ldd /usr/local/bin/direwolf | grep gps
 
 echo "=== Cleaning up ==="
-rm -rf "${DIREWOLF_SRC_DIR}"
+rm -rf ${DIREWOLF_SRC_DIR}
 
 echo "=== Cleaning up packages ==="
 apt-get -qq -y purge --autoremove --allow-remove-essential \
