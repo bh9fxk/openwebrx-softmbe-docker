@@ -5,6 +5,7 @@ echo "=== Removing any existing Dire Wolf installation (source-built) ==="
 rm -f /usr/local/bin/direwolf
 rm -f /usr/local/share/man/man1/direwolf.1
 rm -rf /usr/local/share/direwolf
+
 echo "=== Removing any existing direwolf package ==="
 apt-get remove -y direwolf || true
 apt-get remove -y direwolf gpsd gpsd-clients libgps28 libgps30 || true
