@@ -11,7 +11,7 @@ apt-get remove -y direwolf gpsd gpsd-clients libgps28 libgps30 || true
 
 echo "=== Installing build dependencies for Dire Wolf ==="
 apt-get update
-apt-get install -y \
+apt-get install -y -no-install-recommends \
     git \
     automake \
     apt-utils \
