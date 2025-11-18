@@ -51,7 +51,6 @@ ldd /usr/local/bin/direwolf | grep gps
 
 echo "=== Cleaning up ==="
 rm -rf "${DIREWOLF_SRC_DIR}"
-apt-get autoremove -y
 apt-get -qq -y purge --autoremove --allow-remove-essential \
     git \
     gcc \
@@ -59,6 +58,7 @@ apt-get -qq -y purge --autoremove --allow-remove-essential \
     cmake \
     pkg-config \
     build-essential
+apt-get autoremove -y
 apt-get clean
 rm -rf /var/lib/apt/lists/*
 # strip lots of generic documentation that will never be read inside a docker container
