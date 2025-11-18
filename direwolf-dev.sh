@@ -43,6 +43,10 @@ echo "=== Checking linked libraries ==="
 ldd /usr/local/bin/direwolf | grep gps
 
 echo "=== Cleaning up ==="
+pwd
+cd
+pwd
+echo ${DIREWOLF_SRC_DIR}
 rm -rf ${DIREWOLF_SRC_DIR}
 
 echo "=== Cleaning up packages ==="
