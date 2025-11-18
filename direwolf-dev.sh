@@ -44,7 +44,7 @@ ldd /usr/local/bin/direwolf | grep gps
 echo "=== Cleaning up ==="
 rm -rf "${DIREWOLF_SRC_DIR}"
 apt-get -qq -y purge --autoremove --allow-remove-essential \
-        git automake apt-utils libasound2-dev libudev-dev cmake pkg-config build-essential libhamlib-dev
+        git automake apt-utils cmake pkg-config build-essential
 apt-get autoremove -y
 apt-get clean
 rm -rf /var/lib/apt/lists/*
