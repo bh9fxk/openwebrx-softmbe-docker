@@ -13,7 +13,7 @@ apt-get remove -y direwolf gpsd gpsd-clients libgps28 libgps30 || true
 echo "=== Installing build dependencies for Dire Wolf ==="
 BUILD_PACKAGES="git automake apt-utils libasound2-dev libudev-dev libgps-dev cmake pkg-config build-essential libhamlib-dev"
 apt-get update
-apt-get install -y -no-install-recommends $BUILD_PACKAGES
+apt-get install -y --no-install-recommends $BUILD_PACKAGES
 # Verify what version we actually got
 echo "Installed libgps version:"
 dpkg -l | grep libgps
