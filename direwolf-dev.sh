@@ -13,8 +13,8 @@ echo "=== Installing build dependencies for Dire Wolf ==="
 apt-get update
 apt-get install -y \
     git \
-    gcc \
-    make \
+    automake \
+    apt-utils \
     libasound2-dev \
     libudev-dev \
     libgps-dev \
@@ -53,11 +53,15 @@ echo "=== Cleaning up ==="
 rm -rf "${DIREWOLF_SRC_DIR}"
 apt-get -qq -y purge --autoremove --allow-remove-essential \
     git \
-    gcc \
-    make \
+    automake \
+    apt-utils \
+    libasound2-dev \
+    libudev-dev \
+    libgps-dev \
     cmake \
     pkg-config \
-    build-essential
+    build-essential \
+    libhamlib-dev
 apt-get autoremove -y
 apt-get clean
 rm -rf /var/lib/apt/lists/*
