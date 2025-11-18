@@ -23,7 +23,7 @@ echo "Available libgps files:"
 ls -l /usr/lib/*/libgps.so*
 
 DIREWOLF_VERSION="1.8.1"
-DIREWOLF_SRC_DIR="/tmp/direwolf-${DIREWOLF_VERSION}"
+DIREWOLF_SRC_DIR="/tmp/direwolf"
 
 echo "=== Downloading Dire Wolf ${DIREWOLF_VERSION} ==="
 # git clone --branch ${DIREWOLF_VERSION} --depth 1 https://github.com/wb2osz/direwolf.git "${DIREWOLF_SRC_DIR}"
@@ -43,6 +43,8 @@ ldd /usr/local/bin/direwolf | grep gps
 
 echo "=== Cleaning up ==="
 rm -rf "${DIREWOLF_SRC_DIR}"
+
+echo "=== Cleaning up packages ==="
 apt-get -qq -y purge --autoremove --allow-remove-essential \
         git automake apt-utils cmake pkg-config build-essential
 apt-get autoremove -y
